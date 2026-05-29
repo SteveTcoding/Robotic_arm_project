@@ -1,4 +1,4 @@
-# Robotic_arm_project
+# Robotic arm project
 Robotic arm built and controlled using C++ on Arduino to perform automated movement tasks and object manipulation
 # Features
 Servo motor control
