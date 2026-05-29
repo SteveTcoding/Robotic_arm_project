@@ -8,13 +8,13 @@ Automated movements
 Arduino_
 C++_
 Servo motor libraries_
-Embedded systems programming_
+Embedded systems programming
 # How it works
 The robotic arm is controlled through C++ code and the program sends instructions to the servos of the arms that control the joints of the arm. Different movement sequences were programmed to allow the robotic arm to perform movements such as picking up objects like beakers and separating close objects. Program also includes the reading of potentiometers that allow me to control the arm with potentiometers
 # Challenges:
 Managing time between servo movements_
 Structuring the code for smoother and controlled movements_
-Calibrating servo movement accurately like specific servo angles_
+Calibrating servo movement accurately like specific servo angles
 # What I learned
 Coding in C++, mainly for problem solving_
 Debugging physical systems_
