@@ -1,0 +1,130 @@
+#include <Servo.h> //create servo object to control a servo
+Servo myservo1;
+Servo myservo2;
+Servo myservo3;
+Servo myservo4;
+Servo myservo5;
+
+int delayTime = 25;
+int steps = 140;
+
+void setup()
+{
+  myservo1.attach(9);//attachs the servo on pin 9 to servo object
+  myservo1.write(85); //moves servo to a specific angle
+  delay(1000);//wait for a second
+  myservo2.attach(6);
+  myservo2.write(5);
+  delay(1000);
+  myservo3.attach(5);
+  myservo3.write(92);
+  delay(1000);
+  myservo4.attach(3);
+  myservo4.write(100);
+  delay(1000);
+  myservo5.attach(11);
+  myservo5.write(0);
+  delay(1000);
+
+//Moving servo3 from angle 92 to 140 with a dealy between each movement
+for (int pos = 92; pos <= 140; pos++) {
+    myservo3.write(pos);
+    delay(delayTime);
+  }
+
+  for (int pos = 5; pos <= 145; pos++) {
+    myservo2.write(pos);
+    delay(delayTime);
+  }
+
+  for (int pos = 140; pos >= 125; pos--) {
+    myservo3.write(pos);
+    delay(delayTime);
+  }
+  
+  delay(1000);
+}
+
+void loop() {
+
+  for (int pos = 0; pos <= 48; pos++) {
+    myservo5.write(pos);
+    delay(delayTime);
+  }
+
+// The movement of servo2 and servo3 at the same time to different angles with delay between movements
+  for (int i = 0; i <= steps; i++) {
+    int pos1 = 145 - i;                          
+    int pos2 = 125 - (i * 125 / 140);            
+
+    myservo2.write(pos1);
+    myservo3.write(pos2);
+
+    delay(delayTime);
+  }
+
+  for (int pos = 85; pos <= 180; pos++) {
+    myservo1.write(pos);
+    delay(delayTime);
+  }
+
+  for (int i = 0; i <= steps; i++) {
+    int pos1 = 5 + i;                          
+    int pos2 = 0 + (i * 125 / 140);            
+
+    myservo2.write(pos1);
+    myservo3.write(pos2);3
+
+    delay(delayTime);
+  }
+
+  for (int pos = 48; pos >= 0; pos--) {
+    myservo5.write(pos);
+    delay(delayTime);
+  }
+
+  delay(1000);
+
+//The code below reverses the movement done before  
+for (int pos = 0; pos <= 48; pos++) {
+    myservo5.write(pos);
+    delay(delayTime);
+}
+
+
+for (int i = steps; i >= 0; i--) {
+    int pos1 = 5 + i;
+    int pos2 = (i * 125 / 140);
+
+    myservo2.write(pos1);
+    myservo3.write(pos2);
+
+    delay(delayTime);
+}
+
+
+for (int pos = 180; pos >= 85; pos--) {
+    myservo1.write(pos);
+    delay(delayTime);
+}
+
+
+for (int i = steps; i >= 0; i--) {
+    int pos1 = 145 - i;
+    int pos2 = 125 - (i * 125 / 140);
+
+    myservo2.write(pos1);
+    myservo3.write(pos2);
+
+    delay(delayTime);
+}
+
+
+for (int pos = 48; pos >= 0; pos--) {
+    myservo5.write(pos);
+    delay(delayTime);
+}
+
+delay(1000);
+
+}
